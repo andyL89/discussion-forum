@@ -11,10 +11,9 @@ A voting based forum application for learning React with Redux.
 
 ## Technologies Used
 
-* _JavaScript_
-* _JSX_
 * _React_
 * _Redux_
+* _Webpack_
 * _SASS_
 * _draw.io_
 * _git 2.30.0_
@@ -37,8 +36,8 @@ Diagram showing parent and children components and how they will be structured i
 
 ## Setup/Installation
 
-* To clone this directory, navigate in your terminal to the desired location of the project and run command `git clone https://github.com/andyL89/merch-site.git`
-* Navigate to top level of the directory with command `cd merch-site`
+* To clone this directory, navigate in your terminal to the desired location of the project and run command `git clone https://github.com/andyL89/discussion-forum.git`
+* Navigate to top level of the directory with command `cd discussion-forum`
 * Run local server with command `npm run start`
 
 ---
