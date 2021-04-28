@@ -14,7 +14,7 @@ function PostList(props) {
   return (
     <>
       <StyledList>
-        {Object.values(props.postList).map((post) =>
+        {Object.values(props.postList).sort((a, b) => b.voteScore - a.voteScore).map((post) =>
           <Post
             whenPostClicked={props.onPostSelection}
             whenUpvoteClicked={props.onClickingUpvote}
@@ -23,6 +23,8 @@ function PostList(props) {
             title={post.title}
             body={post.body}
             voteScore={post.voteScore}
+            timeStamp={post.timeStamp}
+            edited={post.edited}
             id={post.id}
             key={post.id} />
         )}

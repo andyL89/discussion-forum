@@ -70,14 +70,16 @@ class PostControl extends React.Component {
 
   handleAddingNewPostToList = (newPost) => {
     const { dispatch } = this.props;
-    const { id, name, title, body, voteScore } = newPost;
+    const { id, name, title, body, voteScore, timeStamp, edited } = newPost;
     const action = {
       type: 'ADD_POST',
       id: id,
       name: name,
       title: title,
       body: body,
-      voteScore: voteScore
+      voteScore: voteScore,
+      timeStamp: timeStamp,
+      edited: edited,
     }
     dispatch(action);
     const action2 = {
@@ -93,14 +95,16 @@ class PostControl extends React.Component {
 
   handleEditingPostInList = (postToEdit) => {
     const { dispatch } = this.props;
-    const { id, name, title, body, voteScore } = postToEdit;
+    const { id, name, title, body, voteScore, timeStamp, edited } = postToEdit;
     const action = {
       type: 'ADD_POST',
       id: id,
       name: name,
       title: title,
       body: body,
-      voteScore: voteScore
+      voteScore: voteScore,
+      timeStamp: timeStamp,
+      edited: edited
     }
     dispatch(action);
     this.setState({
@@ -151,7 +155,7 @@ class PostControl extends React.Component {
     } else if (this.state.selectedPost != null) {
       currentlyVisibleState = <PostDetail post = {this.state.selectedPost}
                               onClickingDelete = {this.handleDeletingPost}
-                              onCLickingEdit = {this.handleEditClick}
+                              onClickingEdit = {this.handleEditClick}
                               onClickingUpvote = {this.handleUpvotingPost}
                               onClickingDownvote = {this.handleDownvotingPost} />
                               buttonText = 'Return to Forum';
@@ -183,6 +187,7 @@ PostControl.propTypes = {
 };
 
 const mapStateToProps = state => {
+
   return {
     masterPostList: state.masterPostList,
     formVisibleOnPage: state.formVisibleOnPage

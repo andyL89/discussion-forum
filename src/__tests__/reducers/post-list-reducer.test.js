@@ -7,12 +7,14 @@ describe('postListReducer', () => {
   const currentState = {
     1: {name: 'User1',
     title: 'Unpopular Opinion',
-    body: 'Music is dumb',
+    body: 'Music is dumb.',
     voteScore: 0,
+    timeStamp: '04/28/2021, 01:50:13 PM',
     id: 1 },
     2: {name: 'User2',
     title: 'Popular Opinion',
-    body: 'Movies ROCK!',
+    body: 'Music ROCKS!',
+    timeStamp: '04/28/2021, 01:50:13 PM',
     voteScore: 0,
     id: 2 }
   }
@@ -21,6 +23,7 @@ describe('postListReducer', () => {
     name: 'User1',
     title: 'A post about something',
     body: 'Blah Blah Blah amiright?',
+    timeStamp: '04/28/2021, 01:50:13 PM',
     voteScore: 0,
     id: 1
   };
@@ -30,13 +33,14 @@ describe('postListReducer', () => {
   });
 
   test('Should successfully add new post data to masterPostList', () => {
-    const { name, title, body, voteScore, id } = postData;
+    const { name, title, body, voteScore, timeStamp, id } = postData;
     action = {
       type: 'ADD_POST',
       name: name,
       title: title,
       body: body,
       voteScore: voteScore,
+      timeStamp: timeStamp,
       id: id
     };
     expect(postListReducer({}, action)).toEqual({
@@ -45,6 +49,7 @@ describe('postListReducer', () => {
         title: title,
         body: body,
         voteScore: voteScore,
+        timeStamp: timeStamp,
         id: id
       }
     });
@@ -58,8 +63,9 @@ describe('postListReducer', () => {
     expect(postListReducer(currentState, action)).toEqual({
       2: {name: 'User2',
       title: 'Popular Opinion',
-      body: 'Movies ROCK!',
+      body: 'Music ROCKS!',
       voteScore: 0,
+      timeStamp: '04/28/2021, 01:50:13 PM',
       id: 2 }
     });
   });
@@ -72,13 +78,15 @@ describe('postListReducer', () => {
     expect(postListReducer(currentState, action)).toEqual({
       1: {name: 'User1',
       title: 'Unpopular Opinion',
-      body: 'Music is dumb',
+      body: 'Music is dumb.',
       voteScore: 0,
+      timeStamp: '04/28/2021, 01:50:13 PM',
       id: 1 },
       2: {name: 'User2',
       title: 'Popular Opinion',
-      body: 'Movies ROCK!',
+      body: 'Music ROCKS!',
       voteScore: 1,
+      timeStamp: '04/28/2021, 01:50:13 PM',
       id: 2 }
     });
   });
@@ -91,13 +99,15 @@ describe('postListReducer', () => {
     expect(postListReducer(currentState, action)).toEqual({
       1: {name: 'User1',
       title: 'Unpopular Opinion',
-      body: 'Music is dumb',
+      body: 'Music is dumb.',
       voteScore: -1,
+      timeStamp: '04/28/2021, 01:50:13 PM',
       id: 1 },
       2: {name: 'User2',
       title: 'Popular Opinion',
-      body: 'Movies ROCK!',
+      body: 'Music ROCKS!',
       voteScore: 1,
+      timeStamp: '04/28/2021, 01:50:13 PM',
       id: 2 }
     });
   });

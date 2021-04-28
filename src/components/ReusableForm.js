@@ -53,13 +53,17 @@ function ReusableForm(props) {
           <input
             type='text'
             name='name'
-            placeholder='Username' />
+            defaultValue= {props.name}
+            placeholder='Username'
+          />
           <input
             type='text'
             name='title'
+            defaultValue={props.title}
             placeholder='Title' />
           <textarea
             name='body'
+            defaultValue={props.body}
             placeholder='Body Text of Post' />
           <button type='submit'>{props.buttonText}</button>
         </form>

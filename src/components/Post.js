@@ -62,6 +62,9 @@ function Post(props){
       <StyledPost onClick = {() => props.whenPostClicked(props.id)}>
         <h3>{props.title} - {props.name}</h3>
         <p>{props.body}</p>
+        <p>{props.timeStamp}</p>
+        {props.edited &&
+        <p>Last edited: {props.edited} </p>}
       </StyledPost>
       <StyledVotes>
         <StyledDownvote onClick={() => props.whenDownvoteClicked(props.id) } text = "Downvote"/>
@@ -78,6 +81,8 @@ Post.propTypes = {
   title: PropTypes.string.isRequired,
   body: PropTypes.string,
   voteScore: PropTypes.number,
+  timeStamp: PropTypes.string,
+  edited: PropTypes.string,
   id: PropTypes.string,
   whenPostClicked: PropTypes.func,
 };

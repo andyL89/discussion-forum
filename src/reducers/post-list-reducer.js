@@ -1,17 +1,19 @@
 /* eslint-disable import/no-anonymous-default-export */
 export default (state = {}, action) => {
-  const { name, title, body, voteScore, id } = action;
+  const { name, title, body, voteScore, timeStamp, edited, id } = action;
   switch (action.type) {
-  case 'ADD_POST':
-    return Object.assign({}, state, {
-      [id]: {
-        name: name,
-        title: title,
-        body: body,
-        voteScore: voteScore,
-        id: id
-      }
-    });
+    case 'ADD_POST':
+      return Object.assign({}, state, {
+        [id]: {
+          name: name,
+          title: title,
+          body: body,
+          voteScore: voteScore,
+          timeStamp: timeStamp,
+          edited: edited,
+          id: id
+        }
+      });
     case 'DELETE_POST':
       let newState = { ...state };
       delete newState[id];
