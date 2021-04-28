@@ -16,7 +16,7 @@ const StyledUpvote = styled(Button)`
   color: black;
   border-radius: 5px;
   &:hover {
-    background-color: rgb(0, 128, 255);
+    background-color: rgb(255, 111, 0);
     color: white;
   }
 `
@@ -33,7 +33,7 @@ const StyledDownvote = styled(Button)`
   color: black;
   border-radius: 5px;
   &:hover {
-    background-color: rgb(255, 0, 0);
+    background-color: rgb(0, 128, 255);
     color: white;
   }
 `

@@ -27,7 +27,7 @@ const PostCard = styled.div`
     border-radius: 5px;
   }
 `
-const StyledDownvote = styled(Button)`
+const StyledDelete = styled(Button)`
   cursor: pointer;
   outline: none;
   background: white;
@@ -44,7 +44,23 @@ const StyledDownvote = styled(Button)`
     color: white;
   }
 `
-const StyledUpvote = styled(Button)`
+const StyledEdit = styled(Button)`
+  cursor: pointer;
+  outline: none;
+  background: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: 2px solid black;
+  width: fit-content;
+  font-size: 15px;
+  font-weight: 900;
+  color: black;
+  border-radius: 5px;
+  &:hover {
+    background-color: rgb(255, 255, 0);
+  }
+`
+const StyledDownvote = styled(Button)`
   cursor: pointer;
   outline: none;
   background: white;
@@ -58,6 +74,23 @@ const StyledUpvote = styled(Button)`
   border-radius: 5px;
   &:hover {
     background-color: rgb(0, 128, 255);
+    color: white;
+  }
+`
+const StyledUpvote = styled(Button)`
+  cursor: pointer;
+  outline: none;
+  background: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: 2px solid black;
+  width: fit-content;
+  font-size: 15px;
+  font-weight: 900;
+  color: black;
+  border-radius: 5px;
+  &:hover {
+    background-color: rgb(255, 111, 0);
     color: white;
   }
 `
@@ -76,8 +109,8 @@ function PostDetail(props){
         <p>Last edited: {post.edited} </p>}
       <StyledDownvote onClick={() => onClickingDownvote(post.id) } text = "Downvote"/>
       <StyledUpvote onClick={() => onClickingUpvote(post.id) } text = "Upvote"/>
-      <button onClick={ props.onClickingEdit }>Edit</button>
-      <button onClick={() => onClickingDelete(post.id) }>Delete</button>
+      <StyledEdit onClick={ props.onClickingEdit } text = "Edit"/>
+      <StyledDelete onClick={() => onClickingDelete(post.id) } text = "Delete"/>
     </PostCard>
   );
 }
